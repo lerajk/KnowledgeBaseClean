@@ -1,0 +1,125 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+footer{
+	margin-top: 20px;
+}
+
+/* buttons */
+
+.update {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: px 2px;
+    cursor: pointer;
+}
+
+.delete {
+	border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: px 2px;
+    cursor: pointer;
+	background-color: #f44336;
+
+}
+
+/* button ends*/
+
+/* test CSS for the green border stuff */
+
+.section {
+	border: 6px solid #73AD21;
+	margin: 20px;
+	width: 500px;
+	border-radius: 25px;
+	margin-bottom: 20px;
+}
+
+/* for accordian on show page */
+.accordionItemHeading{
+    cursor:pointer;
+    margin:0px 0px 10px 0px;
+    padding:10px;
+    background:#2980b9;
+    color:#fff;
+    width:100%;
+	border-radius: 3px;
+    box-sizing: border-box;
+}
+
+
+.accordionItemContent{
+        padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin: 0px 0px 10px 0px;
+    display:block;
+    -webkit-transform: scaleY(1);
+	transform: scaleY(1);
+    -webkit-transform-origin: top;
+	transform-origin: top;
+
+	-webkit-transition: -webkit-transform 0.4s ease-out;
+	-webkit-transition: -webkit-transform 0.4s ease;
+	transition: -webkit-transform 0.4s ease;
+	transition: transform 0.4s ease;
+	transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+        box-sizing: border-box;
+}
+
+/*accordian ends here */
+
+
+
+/* ADD FORM STUFF */
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    background: white    /* #3b5998 */  ;
+    border-radius: 10px;
+    margin: 0 auto;
+
+}
+
+.flex-item {
+  background: white; /* tomato*/
+  border: 3px solid rgba(0,0,0,.2);
+  line-height: 100px;
+  color: tomato;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  border-radius: 5px;
+}
+
+
+.flex-item:nth-of-type(1) { flex-grow: 0; }
+.flex-item:nth-of-type(2) { flex-grow: 0; }
+.flex-item:nth-of-type() { flex-grow: 3; }
+
+
+
+
+/* ADD FORM STUFF ADDS HERE */

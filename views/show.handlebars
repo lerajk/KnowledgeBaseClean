@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+</head>
+<body>
+	
+
+
+<div class="testing"></div>
+<div class="letsgo"></div>
+
+
+
+
+<!--tests -->
+<script>
+
+
+	$.ajax({
+	  url: 'http://localhost:3000/api/show',
+	  method: 'GET',
+	  dataType: 'json'
+	}).then(function(res) {
+
+		var title = res[0].title;
+		var author = res[0].author;
+		var blog = res[0].content;
+
+		//console.log(title);
+	
+
+	  var author = res[0].author;
+	  var author = "<p>" + author + "</p>";
+
+	  console.log(res);
+
+	  var objectLength = res.length;
+      console.log("the object length is " + objectLength);
+      for (var i = 0; i < objectLength; i = i + 1) {
+      		var title = (res[i].title);
+      		var author = (res[i].author);
+      		var blog = (res[i].content);
+      		var id = (res[i]._id);
+      		//console.log(id_global);
+
+
+     
+          $(".letsgo").append(
+          	"<div id=" + id + " class='accordianOpen'> " + "<h2 class='accordionItemHeading'>" + title + " by " + author + "</h2>" +
+           	"<div class='accordionItemContent'><p>" + blog + "</p>" + " <button id = " + id + " class='update'>View</button> <button id = " + id + " class='delete'>Delete</button>" + 
+           	"</div> </div>"
+
+        	 ); //append ends    
+       
+
+      }
+
+      deleteFunction();
+
+      //testFunction();
+      
+	});
+
+	 function deleteFunction(){
+
+
+    $(".delete").click(function(e){
+        e.preventDefault();
+        var thisId = $(this).attr("id");
+        console.log(thisId);
+        //var currentLocation = location.href;
+        //var newLocation = currentLocation + "/" + thisId;
+        //location.href = newLocation;
+        //console.log('delete activated'); //can't see properly 
+
+          $.ajax({
+              url: 'http://localhost:3000/show/' + thisId,
+              method: 'DELETE',
+              contentType:'application/json', 
+              success: function(res){
+                alert('deleting article');
+                window.location.href = '/'; 
+              } //success
+              
+            }) // ajax call
+
+      }); //delete class click function 
+	           
+          
+
+             // location.href = 'https://www.google.ca/';
+
+          } //delete funtion ends
+
+    function updateFunction(){
+
+          var local_id;
+
+          $.ajax({
+          url: 'http://localhost:3000/api/show',
+          method: 'GET',
+          dataType: 'json'
+          }).then(function(res) {
+
+            for (var i=0; i < res.length; i++){
+
+              local_id = (res[i]._id);
+              console.log(local_id);
+
+
+            } //for loop ends here
+
+            // location.href = 'http://localhost:3000/' + local_id;
+
+          }); //then function ends here
+
+      //alert(1);
+      //location.href = 'https://www.google.ca/';
+        
+             
+
+    } // update function ends here
+
+    function testFunction() {
+      $(".update").click(function(e){
+        e.preventDefault();
+        var thisId = $(this).attr("id");
+        var currentLocation = location.href;
+        var newLocation = currentLocation + "/" + thisId;
+        location.href = newLocation;
+
+      })
+    }
+
+ 
+  
+
+
+</script>
+
+</body>
+</html>
+
+
+
+

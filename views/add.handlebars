@@ -1,0 +1,43 @@
+<header>
+<link rel= "stylesheet" href="/stylesheets/bootstrap.css"/>
+<link rel= "stylesheet" href="/stylesheets/style.css"/>
+</header>
+
+<p>Add an article</p> 
+
+<div class="container">
+
+  <!-- important stuff
+  <form action="http://localhost:3000/api/show" method="post">
+
+   
+    <input type="text" id="fname" name="title" placeholder="Title"> </br> </br> 
+
+  
+    <input type="text" id="lname" name="author" placeholder="Author"> </br> </br> 
+
+   
+    <select id="department" name="department">
+      <option value="Content">Content</option>
+      <option value="Development">Development</option>
+      <option value="Sales">Sales</option>
+    </select> </br> </br> 
+
+
+    <textarea id="content" name="content" placeholder="Write your post.." style="height:200px"></textarea> </br> </br> 
+
+    <input type="submit" value="Submit">
+
+    -->
+
+
+    <form id="form" class="flex-container" action="http://localhost:3000/api/show" method="post">
+      <input id="name" class="flex-item" type="text" name="title" placeholder="Write your title..">
+      <input id="email" class="flex-item" type="text" name="author" placeholder="Write your author..">
+      <textarea id="message" class="flex-item" type="text" name="content" placeholder="Write your post.."></textarea>
+      <input id="submit" class="update" type="submit" value="Submit">
+  
+    </form>
+
+  </form>
+</div>
