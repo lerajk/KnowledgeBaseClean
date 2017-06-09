@@ -20,8 +20,22 @@ router.get('/show', articlesh.show);
 //get single article
 router.get('/show/:id', articlesh.findbyid);
 
+//test
+//router.get('/show/:id', function(req,res){
+	//res.send(req.params.id);	
+//})
+
+
 //delete articles
 router.delete('/show/:id', articlesh.deleteme);
 
+//edit article put request
+router.put('/add/:id',articlesh.editme);
+
+//edit article get request
+router.get('/add/:id', function(req,res){
+	res.render('edit');
+	//res.send('hi');
+})
 
 module.exports = router;

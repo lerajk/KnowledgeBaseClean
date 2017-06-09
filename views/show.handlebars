@@ -48,7 +48,7 @@
      
           $(".letsgo").append(
           	"<div id=" + id + " class='accordianOpen'> " + "<h2 class='accordionItemHeading'>" + title + " by " + author + "</h2>" +
-           	"<div class='accordionItemContent'><p>" + blog + "</p>" + " <button id = " + id + " class='update'>View</button> <button id = " + id + " class='delete'>Delete</button>" + 
+           	"<div class='accordionItemContent'><p>" + blog + "</p>" + " <button id = " + id + " class='update'>Update</button> <button id = " + id + " class='delete'>Delete</button>" + 
            	"</div> </div>"
 
         	 ); //append ends    
@@ -57,13 +57,13 @@
       }
 
       deleteFunction();
+      updateFunction();
 
       //testFunction();
       
 	});
 
 	 function deleteFunction(){
-
 
     $(".delete").click(function(e){
         e.preventDefault();
@@ -77,53 +77,42 @@
           $.ajax({
               url: 'http://localhost:3000/show/' + thisId,
               method: 'DELETE',
-              contentType:'application/json', 
               success: function(res){
                 alert('deleting article');
                 window.location.href = '/'; 
               } //success
               
-            }) // ajax call
+            }); // ajax call
 
       }); //delete class click function 
 	           
-          
-
              // location.href = 'https://www.google.ca/';
 
           } //delete funtion ends
 
     function updateFunction(){
 
-          var local_id;
-
-          $.ajax({
-          url: 'http://localhost:3000/api/show',
-          method: 'GET',
-          dataType: 'json'
-          }).then(function(res) {
-
-            for (var i=0; i < res.length; i++){
-
-              local_id = (res[i]._id);
-              console.log(local_id);
+      $(".update").click(function(e){
+        e.preventDefault();
+        var thisID = $(this).attr("id");
+        console.log(thisID);
+        location.href = 'http://localhost:3000/add/' + thisID;
 
 
-            } //for loop ends here
+        $.ajax({
+          url: 'http://localhost:3000/add/' + thisID,
+          method: 'GET' // this method was PUT
+        }); //ajax call 
+      });//update JQuery
 
-            // location.href = 'http://localhost:3000/' + local_id;
-
-          }); //then function ends here
-
-      //alert(1);
-      //location.href = 'https://www.google.ca/';
+      
         
-             
-
     } // update function ends here
 
+
+
     function testFunction() {
-      $(".update").click(function(e){
+      $(".").click(function(e){
         e.preventDefault();
         var thisId = $(this).attr("id");
         var currentLocation = location.href;

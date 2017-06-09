@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<header>
+<link rel= "stylesheet" href="/stylesheets/bootstrap.css"/>
+<link rel= "stylesheet" href="/stylesheets/style.css"/>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+</header>
+<body>
+
+<p>Edit an article</p> 
+
+<div class="container">
+
+    <form id="form" class="flex-container" action="http://localhost:3000/show" method="put">
+      <input id="name" class="flex-item" type="text" name="title_edit" placeholder="Write your title..">
+      <input id="email" class="flex-item" type="text" name="test" placeholder="Write your author..">
+      <textarea id="message" class="flex-item" type="text" name="content_edit" placeholder="Write your post.."></textarea>
+      <input id="submit" class="update" type="submit" value="EDIT">
+  
+    </form>
+
+</div>
+
+<script type="text/javascript">
+
+	editFunction();
+
+    function editFunction(){
+
+      $(".update").click(function(e){
+        //e.preventDefault();
+        //var thisID = $(this).attr("id");
+        //console.log(thisID);
+        var a = location.href; //'http://localhost:3000/add/:id';
+        var value = a.split('/')[4];
+        console.log(value); 
+
+
+        $.ajax({
+          url: 'http://localhost:3000/add/' +  value,
+          method: 'put',
+          dataType : 'json', // data type
+          data : $("#form").serialize()
+          
+          //Content-Type: "application/json"//"text/plain"
+
+        }); //ajax call 
+      });//update JQuery 
+
+      
+        
+    } // update function ends here
+	
+
+
+</script>
+</body>
+</html>

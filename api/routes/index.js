@@ -8,7 +8,8 @@ router.get('/show', show.listarticles);
 //add an article 
 router.post('/show', show.addarticles)
 
-router.delete('/show', show.deletearticles);
+
+//router.delete('/show', show.deletearticles);
 
 
 
