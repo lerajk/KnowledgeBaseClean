@@ -66,27 +66,33 @@
 	 function deleteFunction(){
 
     $(".delete").click(function(e){
+       
+       if (confirm('Delete this Article?')) {
+
+       //}
+
         e.preventDefault();
         var thisId = $(this).attr("id");
         console.log(thisId);
-        //var currentLocation = location.href;
-        //var newLocation = currentLocation + "/" + thisId;
-        //location.href = newLocation;
-        //console.log('delete activated'); //can't see properly 
+        window.location.href = 'http://localhost:3000/show';
 
-          $.ajax({
+        //activate ajax call
+        $.ajax({
               url: 'http://localhost:3000/show/' + thisId,
-              method: 'DELETE',
-              success: function(res){
-                alert('deleting article');
-                window.location.href = '/'; 
-              } //success
-              
+              method: 'DELETE'       
             }); // ajax call
 
-      }); //delete class click function 
+      } else {
+
+        console.log('Delete Prevented');
+
+        //window.location.href = 'http://localhost:3000/show';
+      }
+
+      }); //.delete class click function 
+
+
 	           
-             // location.href = 'https://www.google.ca/';
 
           } //delete funtion ends
 

@@ -32,7 +32,13 @@ module.exports.addarticles = function (req,res){
 		} else {
 			//sendJsonResponse(res,201,articles);
 			console.log('success in inserting document');
-			res.redirect('http://localhost:3000/api/show');
+			//redirect to API
+			//res.redirect('http://localhost:3000/api/show');
+
+			//redirect to show page for UI experience
+			res.redirect('http://localhost:3000/show');
+			
+
 		}
 	});
 };

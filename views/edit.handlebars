@@ -12,13 +12,37 @@
 
 <div class="container">
 
+
+    <!-- OLD FORM 
     <form id="form" class="flex-container" action="http://localhost:3000/show" method="put">
-      <input id="name" class="flex-item" type="text" name="title_edit" placeholder="Write your title..">
-      <input id="email" class="flex-item" type="text" name="test" placeholder="Write your author..">
-      <textarea id="message" class="flex-item" type="text" name="content_edit" placeholder="Write your post.."></textarea>
+      <input id="name" class="flex-item" type="text" name="title_edit" placeholder="Write your title.." >
+      <input id="email" class="flex-item" type="text" name="test" placeholder="Write your author.." >
+      <textarea id="message" class="flex-item" type="text" name="content_edit" placeholder="Write your post.."  ></textarea>
       <input id="submit" class="update" type="submit" value="EDIT">
   
-    </form>
+    </form> -->
+
+
+<div class="form-style-2">
+<div class="form-style-2-heading">Edit your Blog</div>
+
+<form id= "form" action="http://localhost:3000/show" method="put">
+
+<label for="field1"><span>Title <span class="required">*</span> </span><input type="text" class="input-field" name="title_edit"  /></label>
+
+<label for="field2"><span>Author <span class="required">*</span> </span><input type="text" class="input-field" name="test" value="" /></label>
+
+<label for="field4"><span>Category</span><select name="field4" class="select-field">
+<option value="General Question">Content</option>
+<option value="Advertise">Sales</option>
+<option value="Partnership">Developmemt</option>
+</select></label>
+
+<label for="field5"><span>Blog <span class="required">*</span></span> <textarea name="content_edit" class="textarea-field"></textarea></label>
+
+<label><span>&nbsp;</span><input type="submit" value="Edit" class ="update"/></label>
+</form>
+</div>
 
 </div>
 
