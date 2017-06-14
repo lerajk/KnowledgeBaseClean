@@ -24,7 +24,8 @@ module.exports.addarticles = function (req,res){
 	show.create({
 		title: req.body.title,
 		author: req.body.author,
-		content: req.body.content
+		content: req.body.content,
+		category: req.body.category
 	}, function(err,articles){
 		if(err){
 			//sendJsonResponse(res,400,err);

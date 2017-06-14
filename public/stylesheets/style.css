@@ -199,3 +199,9 @@ footer{
 .error {
     color:red;
 }
+
+/* alignment of span */
+
+.tag {
+    float: right;
+}

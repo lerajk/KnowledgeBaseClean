@@ -25,6 +25,10 @@ var ArticleSchema = mongoose.Schema({
 	author: {
 		type: String,
 		required: true
+	},
+	category: {
+		type: String,
+		required: true
 	}
 });
 
