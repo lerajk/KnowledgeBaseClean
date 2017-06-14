@@ -194,4 +194,8 @@ footer{
 
 
 
-/* ADD FORM STUFF ADDS HERE */
+/* form validation stuff */
+
+.error {
+    color:red;
+}

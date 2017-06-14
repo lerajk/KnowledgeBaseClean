@@ -5,6 +5,8 @@
 <link rel= "stylesheet" href="/stylesheets/bootstrap.css"/>
 <link rel= "stylesheet" href="/stylesheets/style.css"/>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate.min.js"></script>
+
 </header>
 <body>
 
@@ -70,11 +72,41 @@
           //Content-Type: "application/json"//"text/plain"
 
         }); //ajax call 
-      });//update JQuery 
-
-      
+      });//update JQuery    
         
     } // update function ends here
+
+
+//form validation with Jquery happening here
+$(document).ready(function () {
+
+    $('#form').validate({ // initialize the plugin
+        rules: {
+            title_edit: {
+                required: true,
+                //email: true
+            },
+            test: {
+                required: true,
+                //minlength: 5
+            },
+            content_edit: {
+              required: true,
+            }
+        },
+          messages: {
+
+            title_edit: "is required", 
+            test: "is required",
+            content_edit: "is required"
+
+           }
+
+    });
+
+});
+
+
 	
 
 

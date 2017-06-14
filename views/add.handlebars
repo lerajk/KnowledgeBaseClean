@@ -1,7 +1,10 @@
 <header>
 <link rel= "stylesheet" href="/stylesheets/bootstrap.css"/>
 <link rel= "stylesheet" href="/stylesheets/style.css"/>
-<link rel= "stylesheet" href="/stylesheets/style.css"/>
+
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
 </header>
 
 <p>Add an article</p> 
@@ -59,9 +62,44 @@
 
 <label for="field5"><span>Blog <span class="required">*</span></span> <textarea name="content" class="textarea-field"></textarea></label>
 
-<label><span>&nbsp;</span><input type="submit" value="Submit" class ="update"/></label>
+<label><span>&nbsp;</span><input type="submit" value="Submit" class ="update"/></label> 
 </form>
 </div>
 
 
-</div>
+</div> <!-- Div of Container ends here --> 
+
+<script type="text/javascript">
+  
+//form validation with Jquery happening here
+
+$(document).ready(function () {
+
+    $('#form').validate({ // initialize the plugin
+        rules: {
+            title: {
+                required: true,
+                //email: true
+            },
+            author: {
+                required: true,
+                //minlength: 5
+            },
+            content: {
+              required: true,
+            }
+        },
+          messages: {
+
+            title: "is required", 
+            author: "is required",
+            content: "is required"
+
+           }
+
+    });
+
+});
+
+
+</script>
