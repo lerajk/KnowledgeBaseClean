@@ -59,6 +59,7 @@ module.exports.editme = function(req,res){
         edit.author = req.body.test;
         edit.title = req.body.title_edit;
         edit.content = req.body.content_edit;
+        edit.category = req.body.category_edit;
 
         console.log(edit.author);
 
@@ -71,7 +72,7 @@ module.exports.editme = function(req,res){
                 return;
             } else {
                 console.log('updated');
-                console.log('test going on here ' + req.body.test);
+                //console.log('test going on here ' + req.body.test);
             }
 
         }); // data update 
