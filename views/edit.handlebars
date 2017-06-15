@@ -30,9 +30,9 @@
 
 <form id= "form" action="http://localhost:3000/show" method="put">
 
-<label for="field1"><span>Title <span class="required">*</span> </span><input type="text" class="input-field" name="title_edit"  /></label>
+<label for="field1"><span>Title <span class="required">*</span> </span><input id= "title" type="text" class="input-field" name="title_edit"  /></label>
 
-<label for="field2"><span>Author <span class="required">*</span> </span><input type="text" class="input-field" name="test" value="" /></label>
+<label for="field2"><span>Author <span class="required">*</span> </span><input id= "author" type="text" class="input-field" name="test" value="" /></label>
 
 <label for="field4"><span>Category</span><select name="category_edit" class="select-field">
 <option value="Content">Content</option>
@@ -40,7 +40,7 @@
 <option value="Development">Development</option>
 </select></label>
 
-<label for="field5"><span>Blog <span class="required">*</span></span> <textarea name="content_edit" class="textarea-field"></textarea></label>
+<label for="field5"><span>Blog <span class="required">*</span></span> <textarea id= "content" name="content_edit" class="textarea-field"></textarea></label>
 
 <label><span>&nbsp;</span><input type="submit" value="Edit" class ="update"/></label>
 </form>
@@ -105,6 +105,33 @@ $(document).ready(function () {
     });
 
 });
+
+
+// pre populating the form 
+
+var b = location.href; //'http://localhost:3000/add/:id';
+var val = b.split('/')[4];
+console.log('im the value: ' + val); 
+
+$.ajax({ 
+
+  url: 'http://localhost:3000/show/' +  val,
+  method: 'GET',
+  dataType: 'json'
+
+}).then(function(res){
+  //console.log(res);
+  var title = res.title;
+  var author = res.author;
+  var blog = res.content;
+  console.log(blog);
+  document.getElementById("title").value = title; 
+  document.getElementById("author").value = author; 
+  document.getElementById("content").value = blog; 
+
+
+
+}); //ajaxcallends
 
 
 	
