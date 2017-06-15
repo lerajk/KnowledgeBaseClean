@@ -34,7 +34,7 @@
 
 <label for="field2"><span>Author <span class="required">*</span> </span><input id= "author" type="text" class="input-field" name="test" value="" /></label>
 
-<label for="field4"><span>Category</span><select name="category_edit" class="select-field">
+<label for="field4"><span>Category</span><select id= "category" name="category_edit" class="select-field">
 <option value="Content">Content</option>
 <option value="Sales">Sales</option>
 <option value="Development">Development</option>
@@ -124,10 +124,13 @@ $.ajax({
   var title = res.title;
   var author = res.author;
   var blog = res.content;
-  console.log(blog);
+  //var category = res.category;
+  //console.log(category);
   document.getElementById("title").value = title; 
   document.getElementById("author").value = author; 
   document.getElementById("content").value = blog; 
+  //document.getElementById("category").value = category; 
+
 
 
 
