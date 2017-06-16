@@ -6,12 +6,12 @@
 </head>
 <body>
 
-<div class="testing"></div>
-
 <div class ="container">
 
  <div class ="search">
-<input type="search" name="search" placeholder="search with keywords" >
+<input type="search" name="search" placeholder="search with keywords..." > 
+<button type="button" class="btn btn-outline-primary btn-lg">Search</button>
+
 </div> </br>
 <div class="letsgo"></div>
 
@@ -23,27 +23,15 @@
 <!--tests -->
 <script>
 
-
 	$.ajax({
 	  url: 'http://localhost:3000/api/show',
 	  method: 'GET',
 	  dataType: 'json'
 	}).then(function(res) {
 
-		//var title = res[0].title;
-		//var author = res[0].author;
-		//var blog = res[0].content;
 
-		//console.log(title);
-	
-
-	  //var author = res[0].author;
-	  //var author = "<p>" + author + "</p>";
-
-	  //console.log(res);
 
 	  var objectLength = res.length;
-      //console.log("the object length is " + objectLength);
       for (var i = 0; i < objectLength; i = i + 1) {
       		var title = (res[i].title);
       		var author = (res[i].author);
@@ -94,12 +82,9 @@
 
         console.log('Delete Prevented');
 
-        //window.location.href = 'http://localhost:3000/show';
       }
 
       }); //.delete class click function 
-
-
 	           
 
           } //delete funtion ends
@@ -112,7 +97,6 @@
         console.log(thisID);
         location.href = 'http://localhost:3000/add/' + thisID;
 
-
         $.ajax({
           url: 'http://localhost:3000/add/' + thisID,
           method: 'GET' // this method was PUT
@@ -123,7 +107,7 @@
         
     } // update function ends here
 
-
+/*
 
     function testFunction() {
       $(".").click(function(e){
@@ -136,6 +120,7 @@
       })
     }
 
+ */
  
   
 
