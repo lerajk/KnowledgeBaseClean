@@ -20,11 +20,6 @@ router.get('/show', articlesh.show);
 //get single article
 router.get('/show/:id', articlesh.findbyid);
 
-//test
-//router.get('/show/:id', function(req,res){
-	//res.send(req.params.id);	
-//})
-
 
 //delete articles
 router.delete('/show/:id', articlesh.deleteme);
