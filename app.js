@@ -54,8 +54,11 @@ app.use(passport.session());
 
 
 // Connect Flash
-app.use(flash());
+//app.use(flash());
 
+
+
+/*
 
 // Global Vars
 app.use(function (req, res, next) {
@@ -85,6 +88,7 @@ app.use(expressValidator({
   }
 }));
 
+*/ 
 
 app.use('/', index); // index is a variable in the file
 app.use('/users', users);

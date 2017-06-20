@@ -24,11 +24,12 @@ router.post('/register', userdata.createuser);
 
 router.post('/login', userdata.loginuser);
 
-/*router.post('/register', function(req,res){
-  console.log('POST request succesful');
-}) */
 
-
+/*
+router.get('/', ensureAuthenticated, function(req, res){
+  res.render('index');
+});
+*/ 
 
 
 

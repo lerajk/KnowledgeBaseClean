@@ -7,7 +7,6 @@
 
 </header>
 
-<p>Add an article</p> 
 
 <div class="container">
 
@@ -32,18 +31,6 @@
 
     -->
 
-<!-- OLD UGLY FORM
-
-    <form id="form" class="flex-container" action="http://localhost:3000/api/show" method="post">
-      <input id="name" class="flex-item" type="text" name="title" placeholder="Write your title..">
-      <input id="email" class="flex-item" type="text" name="author" placeholder="Write your author..">
-      <textarea id="message" class="flex-item" type="text" name="content" placeholder="Write your post.."></textarea>
-      <input id="submit" class="update" type="submit" value="Submit">
-    </form>
-
-  </form>
-
-  -->
 
 <div class="form-style-2">
 <div class="form-style-2-heading">Enter your Blog</div>
@@ -63,6 +50,7 @@
 <label for="field5"><span>Blog <span class="required">*</span></span> <textarea name="content" class="textarea-field"></textarea></label>
 
 <label><span>&nbsp;</span><input type="submit" value="Submit" class ="update"/></label> 
+<label><span>&nbsp;</span><input id ="cancel"  value="Cancel" class ="delete"/></label> 
 </form>
 </div>
 
@@ -70,6 +58,12 @@
 </div> <!-- Div of Container ends here --> 
 
 <script type="text/javascript">
+
+
+//cancel go to root 
+ document.getElementById("cancel").onclick = function () {
+        window.location.href = 'http://localhost:3000';
+    };
   
 //form validation with Jquery happening here
 
@@ -100,6 +94,9 @@ $(document).ready(function () {
     });
 
 });
+
+
+
 
 
 </script>

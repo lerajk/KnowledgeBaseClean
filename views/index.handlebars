@@ -1,3 +1,21 @@
-<h2 class="page-header">Home</h2> </br>
-<p>1. Add an Article </p>
-<p>2. Show all Articles</p>
+
+
+<div style="text-align:center;">
+
+<button type="button" class="hom" id= "add" >Add my Blog</button> </br> </br>
+<button type="button" class="hom" id= "show" >Discover other Blogs</button>
+
+</div>
+
+
+<script type="text/javascript">
+	// go to add page
+    document.getElementById("add").onclick = function () {
+        window.location.href = 'http://localhost:3000/add';
+    };
+
+    //go to show page
+    document.getElementById("show").onclick = function () {
+        window.location.href = 'http://localhost:3000/show';
+    };
+</script>

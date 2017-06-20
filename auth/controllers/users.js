@@ -38,6 +38,7 @@ module.exports.createuser = function(req,res){
 							console.log('user created with authentication');
 							console.log(User);
 							res.render('login');
+
 									}
 					}); //db.create
 
