@@ -1,27 +1,50 @@
 var db = require('../models/users.js');
-
 var bcrypt = require('bcryptjs');
-
-
 
 
 module.exports.createuser = function(req,res){
 
-db.create({
+	var pass = req.body.password;
+	var storehash;
 
-   email: req.body.email,
-   username: req.body.username,
-   password: req.body.password,
-   password:  req.body.password2,
+	//passsord hashing
+	bcrypt.genSalt(10, function(err,salt){
+		if (err){ 
+			return console.log('error in hashing the password');
+		} 
+		bcrypt.hash(pass, salt, function(err,hash){
+			if (err){
+				return console.log('error in hashing #2');
+			} else {
 
-}, function(err, User){
-	if (err){ 
-		console.log('error in creating user with authentication');
-	} else {
-		console.log('user created with authentication');
-		console.log(User);
-	}
-}) //db.create
+				//console.log('hash of the password is ' + hash);
+				storehash = hash; 
+				//console.log(storehash);
+
+				db.create({
+
+   					email: req.body.email,
+   					username: req.body.username,
+   					password: storehash,
+
+
+						}, function(err, User){
+							if (err){ 
+							
+									console.log('error in creating user with authentication');
+							} else {
+
+							console.log('user created with authentication');
+							console.log(User);
+									}
+					}); //db.create
+
+
+			} // end of else statement 
+		});
+
+}); 
+
 
 
 };// createuser function
