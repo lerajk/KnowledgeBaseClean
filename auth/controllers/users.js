@@ -31,11 +31,13 @@ module.exports.createuser = function(req,res){
 						}, function(err, User){
 							if (err){ 
 							
-									console.log('error in creating user with authentication');
+								console.log('error in creating user with authentication');
+
 							} else {
 
 							console.log('user created with authentication');
 							console.log(User);
+							res.render('login');
 									}
 					}); //db.create
 
@@ -50,12 +52,41 @@ module.exports.createuser = function(req,res){
 };// createuser function
 
 
-/*
-module.exports.createUser = function(newUser, callback){
-	bcrypt.genSalt(10, function(err, salt) {
-	    bcrypt.hash(newUser.password, salt, function(err, hash) {
-	        newUser.password = hash;
-	        newUser.save(callback);
-	    });
-	});
-} */
+module.exports.loginuser = function(req,res){
+
+	var pass = req.body.password;
+
+	bcrypt.genSalt(10, function(err,salt){
+
+		if(err){
+			console.log('error in hashing the password');
+		}
+
+		bcrypt.hash(pass, salt, function(err,hash){
+
+			if (err){
+				console.log('error in hashing #2');
+			} else {
+
+				bcrypt.compare(pass, hash, function(err, isMatch){
+
+				if(err){
+							return console.log('error is comparing password');
+						} 
+
+				if (isMatch) {
+
+							res.render('index');
+
+							}
+				}); //bcryptcompare
+
+
+		} //else 
+
+		}); //bcrypthash
+
+	}); //bcryptgensalt
+
+
+}; //loginuser function
