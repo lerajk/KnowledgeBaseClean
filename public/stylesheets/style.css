@@ -48,6 +48,22 @@ footer{
 
 }
 
+
+.cancel {
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: px 2px;
+    cursor: pointer;
+    background-color: #f44336;
+  border-radius: 5px;
+
+}
+
 /* button ends*/
 
 /* test CSS for the green border stuff */

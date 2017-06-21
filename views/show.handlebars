@@ -13,7 +13,11 @@
 <!-- <button type="button" class="btn btn-outline-primary btn-lg">Search</button> -->
 
 </div> </br>
-<div class="letsgo"></div>
+
+<div class="letsgo"></div> </br>
+
+<input id ="cancel"  value="Go Home" class ="cancel"/></label> 
+
 
 
 
@@ -106,6 +110,12 @@
       
         
     } // update function ends here
+
+
+  //cancel go to root 
+ document.getElementById("cancel").onclick = function () {
+        window.location.href = 'http://localhost:3000';
+    };
 
 /*
 

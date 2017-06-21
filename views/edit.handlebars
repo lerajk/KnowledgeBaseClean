@@ -33,6 +33,7 @@
 <label for="field5"><span>Blog <span class="required">*</span></span> <textarea id= "content" name="content_edit" class="textarea-field"></textarea></label>
 
 <label><span>&nbsp;</span><input type="submit" value="Edit" class ="update"/></label>
+<label><span>&nbsp;</span><input id ="cancel"  value="Cancel" class ="cancel"/></label>
 </form>
 </div>
 
@@ -125,6 +126,13 @@ $.ajax({
 
 
 }); //ajaxcallends
+
+
+
+  //cancel go to show page 
+ document.getElementById("cancel").onclick = function () {
+        window.location.href = 'http://localhost:3000/show';
+    };
 
 
 	
