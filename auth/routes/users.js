@@ -3,8 +3,18 @@
 var express = require('express');
 var router = express.Router();
 var userdata = require('../controllers/users');
+var User = require('../models/users');
+
+//require to lock routes from index.js 
+require('../../routes/index.js');
+
+//passport
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 
+
+//routing 
 router.get('/register', function(req,res){
 	res.render('register');
 
@@ -21,15 +31,7 @@ router.post('/register', userdata.createuser);
 
 
 //login register form 
-
-router.post('/login', userdata.loginuser);
-
-
-/*
-router.get('/', ensureAuthenticated, function(req, res){
-  res.render('index');
-});
-*/ 
+//router.post('/login', userdata.loginuser);
 
 
 

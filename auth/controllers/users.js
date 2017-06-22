@@ -37,7 +37,7 @@ module.exports.createuser = function(req,res){
 
 							console.log('user created with authentication');
 							console.log(User);
-							res.render('login');
+							res.redirect('login');
 
 									}
 					}); //db.create
@@ -77,7 +77,7 @@ module.exports.loginuser = function(req,res){
 
 				if (isMatch) {
 
-							res.render('index');
+							res.redirect('http://localhost:3000/');
 
 							}
 				}); //bcryptcompare
