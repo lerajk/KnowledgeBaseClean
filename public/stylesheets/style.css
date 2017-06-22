@@ -276,7 +276,7 @@ input[type=search] {
     
     }
 
-/* root button css */ 
+/* root button css NOT in USE */ 
 
 .hom {
 
@@ -301,17 +301,34 @@ input[type=search] {
 .hom:hover {
   background: #3cb0fd;
   text-decoration: none;
+
 }
 
 
 /* logout */ 
 
-.logout {
+a {
 
-  font-size: 20px;
-  color: blue;
-  text-shadow: 1px 1px 2px #666666;
+  font-size: 23px;
+  color: gray;
+  font-family: "Libre Baskerville", serif; 
+}
+
+a:hover {
+
+  text-decoration: none;
+  color: #f44336;
+  font-family: "Libre Baskerville", serif; 
 }
 
 
+/* textboxes for login and registration */ 
+
+.form-control {
+
+  width: 30%; 
+  text-align: center;
+  margin: 0 auto;
+
+}
 
