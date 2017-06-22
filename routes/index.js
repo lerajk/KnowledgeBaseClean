@@ -21,23 +21,23 @@ require('../auth/models/users');
 
 
 /* Add Articles */
-router.get('/add', article.add);
+router.get('/add',ensureAuthenticated, article.add);
 
 /* Show Articles */
-router.get('/show', articlesh.show);
+router.get('/show',ensureAuthenticated, articlesh.show);
 
 //get single article
-router.get('/show/:id', articlesh.findbyid);
+router.get('/show/:id', ensureAuthenticated, articlesh.findbyid);
 
 
 //delete articles
-router.delete('/show/:id', articlesh.deleteme);
+router.delete('/show/:id', ensureAuthenticated, articlesh.deleteme);
 
 //edit article put request
-router.put('/add/:id',articlesh.editme);
+router.put('/add/:id', ensureAuthenticated, articlesh.editme);
 
 //edit article get request
-router.get('/add/:id', function(req,res){
+router.get('/add/:id', ensureAuthenticated, function(req,res){
 	res.render('edit');
 	
 });

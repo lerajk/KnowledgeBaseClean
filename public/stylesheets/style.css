@@ -304,5 +304,14 @@ input[type=search] {
 }
 
 
+/* logout */ 
+
+.logout {
+
+  font-size: 20px;
+  color: blue;
+  text-shadow: 1px 1px 2px #666666;
+}
+
 
 
