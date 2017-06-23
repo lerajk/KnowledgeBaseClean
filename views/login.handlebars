@@ -1,11 +1,14 @@
 <html>
+<head>
+	<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+</head>
 <body>
 
 <form method="post">
   
   <div class="form-group" align="center">
 
-    </br> <h3 class = "home"> Welcome to Oracle</h3> </br> 
+    </br> <h3 class = "home"> Welcome Seeker</h3> </br> 
 
     <!-- <label>Username</label> -->
     <input type="text" class="form-control" placeholder="Username" name="username"> </br>
@@ -16,8 +19,23 @@
   </div>
  
   <button type="submit" class="btn btn-default">Login</button>
+  <!--<button id = "register" class="btn btn-default">Register</button>-->
+  <input type = "button" id ="register"  value="Register" class ="register"/>
+  </div>
 </form>
-</div>
+
+
+<script type="text/javascript">
+  
+//go to register page
+ document.getElementById("register").onclick = function () {
+        window.location.href = 'http://localhost:3000/auth/register';
+        console.log('working register button');
+    };
+
+
+</script>
+
 </body>
 
 </html>

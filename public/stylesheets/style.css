@@ -309,7 +309,7 @@ input[type=search] {
 
 a {
 
-  font-size: 23px;
+  font-size: 25px;
   color: gray;
   font-family: "Libre Baskerville", serif; 
 }
@@ -329,6 +329,34 @@ a:hover {
   width: 30%; 
   text-align: center;
   margin: 0 auto;
+
+}
+
+/* p elements */ 
+
+.writing {
+  font-family: "Libre Baskerville", serif; 
+  color: #4c4c4c;
+  font-size: 20px;
+
+}
+
+/* register button */ 
+
+.register {
+
+  border: none;
+    color: black;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 0px;
+    cursor: pointer;
+  background-color: darkgray;
+  border-radius: 5px;
+
 
 }
 
