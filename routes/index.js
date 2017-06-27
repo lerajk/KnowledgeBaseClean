@@ -3,13 +3,18 @@ var router = express.Router();
 var article = require('../controllers/add'); 
 var articlesh = require('../controllers/show'); 
 
+//add controller file for creating user
+var userdata = require('../controllers/users');
 
-var User = require('../auth/models/users');
+
+var User = require('../models/users');
 //passport
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 //var login = require('../auth/controllers/users');
-require('../auth/models/users');
+//require('../auth/models/users');
+
+
 
 
 /*GET home page. 
@@ -103,19 +108,34 @@ passport.deserializeUser(function(id, done) {
 });
 
 
-router.post('/auth/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/auth/login'}),
+//authentication paths
+
+//get the register page
+router.get('/register', function(req,res){
+  res.render('register');
+
+}); 
+
+//add new user from registration form 
+router.post('/register', userdata.createuser);
+
+//get the login page 
+router.get ('/login', function(req,res){
+  res.render('login');
+}); 
+
+
+
+router.post('/login',
+  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login'}),
   function(req, res) {
     res.redirect('/');
   });
 
 
-router.get('/auth/logout', function(req, res){
+router.get('/logout', function(req, res){
 	req.logout();
-
-	//req.flash('success_msg', 'You are logged out');
-
-	res.redirect('/auth/login');
+	res.redirect('/login');
 });
 
 
