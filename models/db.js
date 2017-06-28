@@ -37,13 +37,3 @@ var articles  = mongoose.model('Articles', ArticleSchema);
 module.exports = articles; 
 
 
-/*articles.find({ }, function (err, docs) {
-    if(err){
-        throw err;
-    }
-    if(docs){
-        console.log(JSON.stringify(docs));
-    }else{
-        console.log('No  found');
-    }
-}); */

@@ -1,32 +1,34 @@
 var express = require('express');
 var router = express.Router();
-var article = require('../controllers/add'); 
+
+//controllers for adding blog
 var articlesh = require('../controllers/show'); 
+//model for creating blogs
+require('../models/db');
 
-//add controller file for creating user
+// controller for creating user
 var userdata = require('../controllers/users');
-
-
+//models for user creation
 var User = require('../models/users');
 //passport
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-//var login = require('../auth/controllers/users');
-//require('../auth/models/users');
 
 
 
 
-/*GET home page. 
- router.get('/', function(req, res, next) {
-  //res.render('view', { title: 'my other page', layout: 'index' });
-  res.render('index');
-}); */ 
 
+/* Get the Add Article Page */
+router.get('/add',ensureAuthenticated, function(req,res){
+  res.render('add');
+});
 
+//add the blog with post request 
+router.post('/add', articlesh.addarticles);
 
-/* Add Articles */
-router.get('/add',ensureAuthenticated, article.add);
+//the api JSON data raw
+router.get('/showapi', ensureAuthenticated, articlesh.listarticles);
+
 
 /* Show Articles */
 router.get('/show',ensureAuthenticated, articlesh.show);
@@ -60,7 +62,7 @@ function ensureAuthenticated(req, res, next){
 		return next();
 	} else {
 		//req.flash('error_msg','You are not logged in');
-		res.redirect('/auth/login');
+		res.redirect('/login');
 		console.log('login failed!');
 	}
 }
@@ -68,7 +70,7 @@ function ensureAuthenticated(req, res, next){
 
 
 
-//test
+//passport local strategy 
 
 passport.use(new LocalStrategy(
   function(username, password, done) {

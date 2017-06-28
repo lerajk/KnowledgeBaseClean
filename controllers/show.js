@@ -1,42 +1,59 @@
-//data from database file include
-var data = require('../api/models/db');
 
-
-// controller for show
-// retrives data from API and controls the data tha inputs to the view 
-var request = require('request');
+var data = require('../models/db');
 
 module.exports.show = function(req,res){
-	//res.render('index', {title: 'Im all the articles'});
 	res.render('show');
-	  //res.send('hi');
 };
 
-request('http://localhost:3000/api/show', function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    //console.log(body) // Show the HTML for the Google homepage.
-    console.log('success!')
 
-    // Parse the JSON URL into a Javascript Object
-    var obj = JSON.parse(body);
-    console.log(obj);
-	}
-});
+// pure API JSON data 
+module.exports.listarticles = function (req, res) {
+res.status(200);
+data.find({ }, function (err, docs) {
+    if(err){
+        throw err;
+    }
+    else {
+        res.send(JSON.stringify(docs));
+    }
+}); 
+
+};
 
 
+// add a blog 
+module.exports.addarticles = function (req,res){
+    data.create({
+        title: req.body.title,
+        author: req.body.author,
+        content: req.body.content,
+        category: req.body.category
+    }, function(err,articles){
+        if(err){
+ 
+            console.log('error');
+        } else {
+            //sendJsonResponse(res,201,articles);
+            console.log('success in inserting new article ');
+            res.redirect('http://localhost:3000/show');
+            
+
+        }
+    });
+};
+
+//find a blog by ID 
 module.exports.findbyid = function(req,res){
     
-      //res.send('hi');
         data.findById(req.params.id, function(err, articles){ 
-        //console.log(articles);
         res.send(articles);
-
-        //res.render('single');
-        
+     
 
     } /*inside function of findbyid */ )//findbyid ends here
 };
 
+
+//deleting a blog by ID
 module.exports.deleteme = function(req,res){
 
     data.findByIdAndRemove(req.params.id, function(err,articles){
@@ -49,19 +66,18 @@ module.exports.deleteme = function(req,res){
 
 };
 
+
+//updating the blog by ID
 module.exports.editme = function(req,res){
 
         let edit = {};
-        //edit.title = req.body.title_edit;
-        //edit.author = req.body.author_edit;
-        //edit.body = req.body.content_edit;
-
+      
         edit.author = req.body.test;
         edit.title = req.body.title_edit;
         edit.content = req.body.content_edit;
         edit.category = req.body.category_edit;
 
-        console.log(edit.author);
+        console.log('the edited article was written by:  ' + edit.author);
 
         let query = {_id:req.params.id};
 
@@ -71,39 +87,12 @@ module.exports.editme = function(req,res){
                 console.log(err);
                 return;
             } else {
-                console.log('updated');
-                //console.log('test going on here ' + req.body.test);
+                console.log('the blog was updated!');
+          
             }
 
         }); // data update 
 
-
-
-   /* data.findById(req.params.id, function(err, articles){
-
-        if(err) { 
-            res.status(500).send(err);
-        } else {
-
-            let query = {_id:req.params.id};
-            articles.update(query, edit, function (err){
-                if(err) throw err;
-                else { console.log(articles);}
-                
-            }); 
-
-            
-
-            //articles.title = req.body.titleedit;
-        }
-
-        //var my = JSON.parse(articles);
-        //console.log('Im the object:  ' + my.title);
-        console.log('A put request was established on this ID');
-        console.log(articles);
-
-
-    }) */ 
     
 }
 

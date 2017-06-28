@@ -18,14 +18,14 @@ var LocalStrategy = require('passport-local').Strategy;
 var index = require('./routes/index');
 //var users = require('./routes/users');
 //var api = require('./api/routes/index');
-require('./api/models/db');
+//require('./api/models/db');
 //var auth = require('./auth/routes/users');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
+
 
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
 app.set('view engine', 'handlebars');
@@ -51,8 +51,6 @@ app.use(session({
 // Passport init
 app.use(passport.initialize());
 app.use(passport.session());
-
-
 
 
 // Connect Flash

@@ -28,7 +28,7 @@
 <script>
 
 	$.ajax({
-	  url: 'http://localhost:3000/api/show',
+	  url: 'http://localhost:3000/showapi',
 	  method: 'GET',
 	  dataType: 'json'
 	}).then(function(res) {
@@ -117,20 +117,7 @@
         window.location.href = 'http://localhost:3000';
     };
 
-/*
 
-    function testFunction() {
-      $(".").click(function(e){
-        e.preventDefault();
-        var thisId = $(this).attr("id");
-        var currentLocation = location.href;
-        var newLocation = currentLocation + "/" + thisId;
-        location.href = newLocation;
-
-      })
-    }
-
- */
  
   
 
