@@ -16,10 +16,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 
 var index = require('./routes/index');
-//var users = require('./routes/users');
-//var api = require('./api/routes/index');
-//require('./api/models/db');
-//var auth = require('./auth/routes/users');
+
 
 var app = express();
 
@@ -87,12 +84,7 @@ app.use(expressValidator({
 
 
 app.use('/', index); // index is a variable in the file
-//app.use('/users', users);
 
-//blocking path everwhere except for root
-
-//app.use('/api', api);
-//app.use('/auth', auth);
 
 
 
