@@ -41,4 +41,4 @@ module.exports = articles;
 //mongodb://heroku_xj9150l1:pkbk26uiqi2a3m9tbga0a8ngto@ds141082.mlab.com:41082/heroku_xj9150l1
 
 
-mongodb://lee:lee@ds135552.mlab.com:35552/kb
+//mongodb://lee:lee@ds135552.mlab.com:35552/kb
