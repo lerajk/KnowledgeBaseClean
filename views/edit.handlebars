@@ -18,7 +18,7 @@
 <div class="form-style-2">
 <div class="form-style-2-heading">Edit the blog to help others..</div>
 
-<form id= "form" action="http://localhost:3000/show" method="put">
+<form id= "form" action="https://kwldgebase.herokuapp.com//show" method="put">
 
 <label for="field1"><span>Title <span class="required">*</span> </span><input id= "title" type="text" class="input-field" name="title_edit"  /></label>
 
@@ -55,7 +55,7 @@
 
 
         $.ajax({
-          url: 'http://localhost:3000/add/' +  value,
+          url: 'https://kwldgebase.herokuapp.com/add/' +  value,
           method: 'put',
           dataType : 'json', // data type
           data : $("#form").serialize()
@@ -106,7 +106,7 @@ console.log('im the value: ' + val);
 
 $.ajax({ 
 
-  url: 'http://localhost:3000/show/' +  val,
+  url: 'https://kwldgebase.herokuapp.com/show/' +  val,
   method: 'GET',
   dataType: 'json'
 
@@ -131,7 +131,7 @@ $.ajax({
 
   //cancel go to show page 
  document.getElementById("cancel").onclick = function () {
-        window.location.href = 'http://localhost:3000/show';
+        window.location.href = 'https://kwldgebase.herokuapp.com/show';
     };
 
 

@@ -28,7 +28,7 @@
 <script>
 
 	$.ajax({
-	  url: 'http://localhost:3000/showapi',
+	  url: 'https://kwldgebase.herokuapp.com/showapi',
 	  method: 'GET',
 	  dataType: 'json'
 	}).then(function(res) {
@@ -74,11 +74,11 @@
         e.preventDefault();
         var thisId = $(this).attr("id");
         console.log(thisId);
-        window.location.href = 'http://localhost:3000/show';
+        window.location.href = 'https://kwldgebase.herokuapp.com/show';
 
         //activate ajax call
         $.ajax({
-              url: 'http://localhost:3000/show/' + thisId,
+              url: 'https://kwldgebase.herokuapp.com/show/' + thisId,
               method: 'DELETE'       
             }); // ajax call
 
@@ -99,10 +99,10 @@
         e.preventDefault();
         var thisID = $(this).attr("id");
         console.log(thisID);
-        location.href = 'http://localhost:3000/add/' + thisID;
+        location.href = 'https://kwldgebase.herokuapp.com/add/' + thisID;
 
         $.ajax({
-          url: 'http://localhost:3000/add/' + thisID,
+          url: 'https://kwldgebase.herokuapp.com/add/' + thisID,
           method: 'GET' // this method was PUT
         }); //ajax call 
       });//update JQuery
@@ -114,7 +114,7 @@
 
   //cancel go to root 
  document.getElementById("cancel").onclick = function () {
-        window.location.href = 'http://localhost:3000';
+        window.location.href = 'https://kwldgebase.herokuapp.com/';
     };
 
 
