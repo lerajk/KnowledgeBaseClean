@@ -7,19 +7,23 @@ var articlesh = require('../controllers/show');
 require('../models/db');
 
 // controller for creating user
-var userdata = require('../controllers/users');
+//var userdata = require('../controllers/users');
+
+
 //models for user creation
-var User = require('../models/users');
+//var User = require('../models/users');
+
+
 //passport
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+//var passport = require('passport');
+//var LocalStrategy = require('passport-local').Strategy;
 
 
 
 
 
 /* Get the Add Article Page */
-router.get('/add',ensureAuthenticated, function(req,res){
+router.get('/add', function(req,res){
   res.render('add');
 });
 
@@ -27,24 +31,24 @@ router.get('/add',ensureAuthenticated, function(req,res){
 router.post('/add', articlesh.addarticles);
 
 //the api JSON data raw
-router.get('/showapi', ensureAuthenticated, articlesh.listarticles);
+router.get('/showapi', articlesh.listarticles);
 
 
 /* Show Articles */
-router.get('/show',ensureAuthenticated, articlesh.show);
+router.get('/show', articlesh.show);
 
 //get single article
-router.get('/show/:id', ensureAuthenticated, articlesh.findbyid);
+router.get('/show/:id', articlesh.findbyid);
 
 
 //delete articles
-router.delete('/show/:id', ensureAuthenticated, articlesh.deleteme);
+router.delete('/show/:id', articlesh.deleteme);
 
 //edit article put request
-router.put('/add/:id', ensureAuthenticated, articlesh.editme);
+router.put('/add/:id', articlesh.editme);
 
 //edit article get request
-router.get('/add/:id', ensureAuthenticated, function(req,res){
+router.get('/add/:id', function(req,res){
 	res.render('edit');
 	
 });
@@ -52,9 +56,12 @@ router.get('/add/:id', ensureAuthenticated, function(req,res){
 
 
 // Get Homepage
-router.get('/', ensureAuthenticated, function(req, res){
+router.get('/', function(req, res){
 	res.render('index');
 });
+
+
+/*
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
@@ -140,7 +147,7 @@ router.get('/logout', function(req, res){
 	res.redirect('/login');
 });
 
-
+*/
 
 
 module.exports = router;
