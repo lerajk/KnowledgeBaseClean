@@ -35,7 +35,7 @@ module.exports.addarticles = function (req,res){
         } else {
             //sendJsonResponse(res,201,articles);
             console.log('success in inserting new article ');
-            res.redirect('http://localhost:3000/show');
+            res.redirect('https://kwldgebase.herokuapp.com/show');
             
 
         }
