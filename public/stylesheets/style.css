@@ -9,12 +9,14 @@ a {
 
 footer{
 	
-    font-style: italic; 
-    color: #B6B6B6; 
+    /*font-style: italic; */
+    background-color: #DADADA;
+    color: #36485C /*#B6B6B6*/ ; 
     font-size: 15px; 
     margin-top: 20px; 
     margin-bottom: 20px;
     text-align: center; 
+    padding-bottom: 40px;
     /*text-shadow: 0 1px 1px #fff; */
 }
 
@@ -26,6 +28,27 @@ header {
     /* padding-top: 2px;
     padding-bottom: 2px; */
     color: blue;
+
+}
+
+
+.searchbar {
+
+    width: 200px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 12px;
+    background-color: white;
+    background-image: url('/images/searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 8px 0px 8px 33px;
+    float: right;
+    margin-top: 10px; 
+
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 
 }
 
@@ -46,7 +69,7 @@ header {
 
 .questbutton {
 
- background-color: #4CAF50; /* Green */
+ background-color: #8EC63F; /* Green */
     border: none;
     color: white;
     padding: 11px 32px;
@@ -54,6 +77,20 @@ header {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.navbutton {
+
+ background-color: #DFE5F1; /* Green */
+    border: none;
+    color: #36485C;
+    padding: 17px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 20px;
+
 }
 
 .sectionOne{
@@ -64,6 +101,25 @@ header {
   text-align: center;
   padding: 100px 20px 100px 20px;
 }
+
+
+.sectionTwo{
+
+  /* background-size: 8000px 500px; */
+  text-align: center;
+  padding: 30px 30px 10px 20px;
+}
+
+
+
+.sectionThree{
+
+  /* background-size: 8000px 500px; */
+  text-align: center;
+  padding: 30px 20px 10px 20px;
+}
+
+
 /* buttons */
 
 .update {
